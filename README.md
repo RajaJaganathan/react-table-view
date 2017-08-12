@@ -2,7 +2,7 @@
 
 This is a react table view - lightweight, semantic, highly customizable data table.
 
-> Check out [SurviveJS - Webpack and React](http://survivejs.com/) to dig deeper into the topic.
+> Check out [react-table-view - React](https://github.com/RajaJaganathan/react-table-view) to dig deeper into the topic.
 ### Common Tasks
 
 * Developing - **npm start** - Runs the development server at *localhost:8080* and use Hot Module Replacement. You can override the default host and port through env (`HOST`, `PORT`).
@@ -38,5 +38,5 @@ console.log(a + b);
 
 ## License
 
-*react-component-boilerplate* is available under MIT. See LICENSE for more details.
+*react-table-view* is available under MIT. See LICENSE for more details.
 
