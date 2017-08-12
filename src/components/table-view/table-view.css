@@ -1,0 +1,27 @@
+/* table-view */
+
+.table-wrapper {
+  width: 70%;
+  max-height: 250px;
+  overflow: scroll;
+  margin: 0 auto;
+}
+
+.table-view {
+  width: 100%;
+}
+
+.table-view__header-row {
+  height: 30px;
+}
+
+.table-view__body-row {
+  height: 30px;
+}
+
+.table-view__header-cell,
+.table-view__body-cell {
+  padding: 10px;
+  border: 1px solid rgba(153, 153, 153, 0.5);
+  text-align: center;
+}
