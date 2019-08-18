@@ -1,42 +1,64 @@
-# react-table-view components
+# React NPM library starter kit
 
-This is a react table view - lightweight, semantic, highly customizable data table.
+[![Build Status](https://travis-ci.org/UdiliaInc/create-react-library.svg?branch=master)](https://travis-ci.org/UdiliaInc/create-react-library)
+[![Dependencies](https://img.shields.io/david/udiliaInc/create-react-library.svg)]()
+[![Dev Dependencies](https://img.shields.io/david/dev/udiliaInc/create-react-library.svg)]()
 
-> Check out [react-table-view - React](https://github.com/RajaJaganathan/react-table-view) to dig deeper into the topic.
-### Common Tasks
+based on Facebook's <a href="https://github.com/facebookincubator/create-react-app" target="_blank">Create react app</a>
 
-* Developing - **npm start** - Runs the development server at *localhost:8080* and use Hot Module Replacement. You can override the default host and port through env (`HOST`, `PORT`).
-* Creating a version - **npm version <x.y.z>** - Updates */dist* and *package.json* with the new version and create a version tag to Git.
-* Publishing a version - **npm publish** - Pushes a new version to npm and updates the project site.
+## Converted to custom setup
 
-### Testing
+Moved all dependencies to dev dependencies because we don't need extra dependencies for our library after build, but we want all this features while developing one: 
 
-The test setup is based on Jest. Code coverage report is generated to `coverage/`. The coverage information is also uploaded to codecov.io after a successful Travis build.
+* Compile SCSS to css
+* React, JSX, ES6, and Flow syntax support.
+* Language extras beyond ES6 like the object spread operator.
+* A dev server that lints for common errors.
+* Import CSS and image files directly from JavaScript.
+* Autoprefixed CSS, so you don’t need `-webkit` or other prefixes.
+* A `build` script to bundle JS, CSS, and images for production.
 
-* Running tests once - **npm test**
-* Running tests continuously - **npm run test:watch**
-* Running individual tests - **npm test -- <pattern>** - Works with `test:watch` too.
-* Linting - **npm run test:lint** - Runs ESLint.
+## Getting Started
 
-### Documentation Site
+Clone repo
 
-The boilerplate includes a [GitHub Pages](https://pages.github.com/) specific portion for setting up a documentation site for the component. The main commands handle with the details for you. Sometimes you might want to generate and deploy it by hand, or just investigate the generated bundle.
+````
+git clone https://github.com/udiliaInc/create-react-library.git
+````
 
-* Building - **npm run gh-pages** - Builds the documentation into `./gh-pages` directory.
-* Deploying - **npm run deploy-gh-pages** - Deploys the contents of `./gh-pages` to the `gh-pages` branch. GitHub will pick this up automatically. Your site will be available through *<user name>.github.io/<project name>`.
-* Generating stats - **npm run stats** - Generates stats that can be passed to [webpack analyse tool](https://webpack.github.io/analyse/). This is useful for investigating what the build consists of.
+Install dependencies
 
-## Highlighting Demo for the Site
+`npm install` or `yarn install`
 
-```js
-var a = 5;
-var b = 10;
+Start development server
 
-// just trying out code highlighting feature here
-console.log(a + b);
-```
+`npm start` or `yarn start`
 
-## License
+Runs the demo app in development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-*react-table-view* is available under MIT. See LICENSE for more details.
+## Library files
 
+All library files are located inside `src/lib`  
+
+## Demo app
+
+Is located inside `src/demo` directory, here you can test your library while developing
+
+## Testing
+
+`npm run test` or `yarn run test`
+
+## Build library
+
+`npm run build` or `yarn run build`
+
+Produces production version of library under the `build` folder.
+
+## Publish library
+
+`npm publish`
+
+## Example library built with this starter kit
+
+https://github.com/UdiliaInc/react-under-construction

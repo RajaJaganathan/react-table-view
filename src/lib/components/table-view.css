@@ -2,7 +2,7 @@
 
 .table-wrapper {
   width: 70%;
-  max-height: 250px;
+  max-height: 550px;
   overflow: scroll;
   margin: 0 auto;
 }
@@ -23,5 +23,17 @@
 .table-view__body-cell {
   padding: 10px;
   border: 1px solid rgba(153, 153, 153, 0.5);
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: ri  ght;
+}
+
+.text-center {
   text-align: center;
 }

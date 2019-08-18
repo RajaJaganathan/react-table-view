@@ -1,11 +1,10 @@
-import * as path from 'path';
-
-import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import SystemBellPlugin from 'system-bell-webpack-plugin';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
-import merge from 'webpack-merge';
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SystemBellPlugin = require('system-bell-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const merge = require('webpack-merge');
 
 const pkg = require('./package.json');
 
@@ -130,7 +129,7 @@ const ghPages = merge(common, siteCommon, {
     }),
     new ExtractTextPlugin('[name].[chunkhash].css'),
     new webpack.DefinePlugin({
-        // This affects the react lib size
+      // This affects the react lib size
       'process.env.NODE_ENV': '"production"'
     }),
     new webpack.optimize.UglifyJsPlugin({
