@@ -25,11 +25,11 @@ export class TableHeader extends Component {
   render() {
     const { children } = this.props;
     const columns = children.map((child, idx) => {
-      const { headerRenderer: HeaderRenderer } = child.props;
-      if (HeaderRenderer) {
+      const { headerRenderer } = child.props;
+      if (headerRenderer) {
         return (
           <th key={idx} className="table-view__header-cell" {...child.props}>
-            <HeaderRenderer />
+            {headerRenderer(child.props)}
           </th>
         );
       }
@@ -120,26 +120,22 @@ export class TableBody extends Component {
   render() {
     const { dataProvider, columns, onRowClick } = this.props;
     const rows = dataProvider.map((row, idx) => {
-      if (this.props.renderExpandRow) {
-        return (
-          <React.Fragment>
-            <TableBodyRow
-              key={idx}
-              row={row}
-              columns={columns}
-              onRowClick={onRowClick}
-            />
-            {this.props.renderExpandRow(row)}
-          </React.Fragment>
-        );
+      let ExpandRowRender;
+
+      if (this.props.expandRowRenderer) {
+        ExpandRowRender = this.props.expandRowRenderer(row);
       }
+
       return (
-        <TableBodyRow
-          key={idx}
-          row={row}
-          columns={columns}
-          onRowClick={onRowClick}
-        />
+        <React.Fragment>
+          <TableBodyRow
+            key={idx}
+            row={row}
+            columns={columns}
+            onRowClick={onRowClick}
+          />
+          {ExpandRowRender ? ExpandRowRender : null}
+        </React.Fragment>
       );
     });
     return <tbody className="table-view__body">{rows}</tbody>;

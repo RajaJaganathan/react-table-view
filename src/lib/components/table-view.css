@@ -9,6 +9,7 @@
 
 .table-view {
   width: 100%;
+  border-collapse: collapse;
 }
 
 .table-view__header-row {
@@ -16,14 +17,19 @@
 }
 
 .table-view__body-row {
-  height: 30px;
+  height: auto;
 }
 
 .table-view__header-cell,
 .table-view__body-cell {
-  padding: 10px;
+  padding: 5px;
   border: 1px solid rgba(153, 153, 153, 0.5);
   text-align: center;
+}
+
+.table-view__body-expand-row {
+  display: table-row;
+  border: 1px solid rgba(128, 128, 128, 0.5);
 }
 
 .text-left {
@@ -31,9 +37,13 @@
 }
 
 .text-right {
-  text-align: ri  ght;
+  text-align: ri ght;
 }
 
 .text-center {
   text-align: center;
+}
+
+.expand-row {
+  padding: 10px;
 }

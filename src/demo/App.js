@@ -29,7 +29,10 @@ class App extends React.Component {
   };
 
   handleRowClick = (e, row) => {
-    alert(row.name);
+    row.expand = !Boolean(row.expand);
+    this.setState({
+      data: this.state.data.slice()
+    });
   };
 
   render() {
@@ -38,35 +41,46 @@ class App extends React.Component {
         <TableView
           dataProvider={this.state.data}
           onRowClick={this.handleRowClick}
-          renderExpandRow={row => {
-            return (
-              <tr className="table-view__body-expand-row">
-                <td colspan={6}>
-                  <div>
-                    <p> {row.address}</p>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ipsam explicabo atque commodi, neque blanditiis, ea
-                      similique inventore error tenetur saepe aliquam ad aut
-                      vero? Eum maxime veritatis blanditiis tempore animi.
-                    </p>
-                  </div>
-                </td>
-              </tr>
-            );
+          expandRowRenderer={row => {
+            const displayProps = row.expand
+              ? { display: "table-row" }
+              : { display: "none" };
+
+            if (row.age > 25) {
+              return (
+                <tr
+                  className="table-view__body-expand-row"
+                  style={displayProps}
+                >
+                  <td colSpan={6}>
+                    <div className="expand-row">
+                      <p> {row.address}</p>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ipsam explicabo atque commodi, neque blanditiis, ea
+                        similique inventore error tenetur saepe aliquam ad aut
+                        vero? Eum maxime veritatis blanditiis tempore animi.
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              );
+            }
+            return null;
           }}
         >
           <Columns>
             <TableColumn
               dataField="picture"
               headerText="Photo"
-              headerRenderer={row => <p>Header 2</p>}
+              headerRenderer={column => <p>Photo</p>}
               itemRenderer={row => <img src={row.picture} alt="" />}
             />
             <TableColumn
               dataField="name"
               headerText="First Name"
               className="text-left"
+              headerRenderer={column => column.headerText.toUpperCase()}
             />
 
             <TableColumn
@@ -95,13 +109,6 @@ class App extends React.Component {
               className="phone-number"
             />
           </Columns>
-          {/* <ExpandRows>
-            <TableColumn
-                dataField="phone"
-                headerText="Phone"
-                className="phone-number"
-              />
-          </ExpandRows> */}
         </TableView>
       </div>
     );
